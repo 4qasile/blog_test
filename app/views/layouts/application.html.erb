@@ -11,9 +11,9 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="nav-bar-toggle" data-toggle="collapse" data-target ="#bs-example-navbar-collapse-1">
-          <span class ="icon-bar"></span>
-          <span class ="icon-bar"></span>
-          <span class ="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
         <%= link_to "Blog App", root_path, class: "navbar-brand" %>
       </div>
@@ -26,27 +26,25 @@
   </nav>
   <div class="container-fluid">
     <% flash.each do |name, msg| %>
-      <div class='alert alert-<%"#{name}" %>'>
+      <div class='alert alert-<%="#{name}" %>'>
         <a href="#" class='close' data-dismiss='alert' &#215;></a>
-        <% content_tag :div, msg, :id => "flash_#{name}"
-            if msg.is_a?(String) %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
         </div>
     <% end %>
-    
+
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class = "col-md-8">
           <%= yield %>
         </div>
-        
+
         <div class= "col-md-4">
-          <%= yield sidebar: %>
+          <%= yield :sidebar %>
         </div>
       </div>
    </div>
  </div>
- 
-<%= yield %>
+
 
 </body>
 </html>
